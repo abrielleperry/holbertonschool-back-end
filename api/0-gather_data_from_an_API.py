@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 """ given employee ID, returns infor about their TODO list progress"""
+import json
 import requests
 import sys
 
-
-employee_user = requests.get("https://jsonplaceholder.typicode.com/users")
-employee_todo = requests.get("https://jsonplaceholder.typicode.com/todos")
+def get_employee(employee_id):
+    employee_user = requests.get("https://jsonplaceholder.typicode.com/users")
+    employee_todo = requests.get("https://jsonplaceholder.typicode.com/todos")
 
 # print(employee_user.status_code)
 # print(employee_user.json())
@@ -46,3 +47,6 @@ for todo_entry in employee_todo.json():
     if todo_entry['userId'] == input_id and todo_entry['completed']:
         title = todo_entry['title']
         print("\t " + title)
+
+if __name__ == "__main__":
+    get_employee()
