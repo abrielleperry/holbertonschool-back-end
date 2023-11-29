@@ -38,4 +38,9 @@ for todo_entry in employee_todo.json():
 completed_tasks = true_count.get(input_id, 0)
 total_tasks = userid_count.get(input_id, 0)
 
+
 print(f"Employee {name} is done with tasks ({completed_tasks}/{total_tasks}):")
+
+
+for todo_entry in employee_todo.json():
+	title = 
