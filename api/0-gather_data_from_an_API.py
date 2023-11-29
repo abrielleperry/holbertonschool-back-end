@@ -46,4 +46,3 @@ for todo_entry in employee_todo.json():
     if todo_entry['userId'] == input_id and todo_entry['completed']:
         title = todo_entry['title']
         print("\t " + title)
-k
