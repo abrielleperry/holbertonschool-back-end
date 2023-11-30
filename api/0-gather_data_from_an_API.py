@@ -44,7 +44,7 @@ if __name__ == "__main__":
     completed_tasks = true_count.get(input_id, 0)
     total_tasks = userid_count.get(input_id, 0)
 
-    print("Employee {} is done with tasks ({}/{}):".format(
+    print("Employee {} is done with tasks({}/{}):".format(
                                                             name,
                                                             completed_tasks,
                                                             total_tasks))
