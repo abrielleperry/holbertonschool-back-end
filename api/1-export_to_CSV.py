@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ given employee ID, returns infor about their TODO list progress"""
+import csv
 import requests
 import sys
 
@@ -23,11 +24,17 @@ if __name__ == "__main__":
         if user['id'] == input_id:
             name = user['name']
             break
+
+    with open("{}.csv".format(input_id), "w", newline="") as csvfile:
+        taskcsv = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
+        for todo_entry in employee_todo:
+            if todo_entry['userId'] == input_id:
+                taskcsv.writerow([input_id, name, todo_entry['completed'], todo_entry['title']])
 # print(name)
 
 # completed = employee_todo.json()[0]['completed']
 # print(completed)
-
+"""
     true_count = {}
     userid_count = {}
 
@@ -53,3 +60,4 @@ if __name__ == "__main__":
         if todo_entry['userId'] == input_id and todo_entry['completed']:
             title = todo_entry['title']
             print("\t {}".format(title))
+"""
