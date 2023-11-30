@@ -31,13 +31,16 @@ if __name__ == "__main__":
         for todo_entry in employee_todo:
             if todo_entry['userId'] == input_id:
                 task = {
-                    "task": todo_entry["title"]
-                    "completed": item["completed"]
+                    "task": todo_entry["title"],
+                    "completed": todo_entry["completed"],
                     "username": user_name
                 }
                 if input_id not in tasks:
                     tasks[input_id] = []
                 tasks[input_id].append(task)
+
+        with open(f"{input_id}.json", "w") as jsonfile:
+            json.dump(tasks, jsonfile)
 # print(name)
 
 # completed = employee_todo.json()[0]['completed']
