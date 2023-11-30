@@ -26,13 +26,14 @@ if __name__ == "__main__":
             username = user['username']
             break
 
+        tasks = {}
+
         for todo_entry in employee_todo:
             if todo_entry['userId'] == input_id:
                 task = {
-                "task": todo_entry["title"]
-                "completed": item["completed"]
-                "username": user_name
-                complete_list.append(new_dic)
+                    "task": todo_entry["title"]
+                    "completed": item["completed"]
+                    "username": user_name
                 }
                 if input_id not in tasks:
                     tasks[input_id] = []
