@@ -26,21 +26,21 @@ if __name__ == "__main__":
             username = user['username']
             break
 
-        tasks = {}
+    tasks = {}
 
-        for todo_entry in employee_todo:
-            if todo_entry['userId'] == input_id:
-                task = {
-                    "task": todo_entry["title"],
-                    "completed": todo_entry["completed"],
-                    "username": username
-                }
-                if input_id not in tasks:
-                    tasks[input_id] = []
-                tasks[input_id].append(task)
+    for todo_entry in employee_todo:
+        if todo_entry['userId'] == input_id:
+            task = {
+                "task": todo_entry["title"],
+                "completed": todo_entry["completed"],
+                "username": username
+            }
+            if input_id not in tasks:
+                tasks[input_id] = []
+            tasks[input_id].append(task)
 
-        with open(f"{input_id}.json", "w") as jsonfile:
-            json.dump(tasks, jsonfile)
+    with open(f"{input_id}.json", "w") as jsonfile:
+        json.dump(tasks, jsonfile)
 # print(name)
 
 # completed = employee_todo.json()[0]['completed']
