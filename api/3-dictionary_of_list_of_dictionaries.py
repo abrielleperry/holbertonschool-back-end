@@ -18,56 +18,52 @@ def get_employee():
 if __name__ == "__main__":
     employee_user, employee_todo = get_employee()
 
-    input_id = int(sys.argv[1])
-
-    username = None
-    for user in employee_user:
-        if user['id'] == input_id:
-            username = user['username']
-            break
-
     tasks = {}
-
     for user in employee_user:
-        username = user["username"]
-        user_id = user["id"]
-        task = {
-            "task": todo_entry["title"],
-            "completed": todo_entry["completed"],
-            "username": username
-        }
-        tasks.append(task)
+        username = user['username']
+        user_id = user['id']
 
-    with open(f"{input_id}.json", "w") as jsonfile:
-        json.dump(tasks, jsonfile)
-# print(name)
-
-# completed = employee_todo.json()[0]['completed']
-# print(completed)
-"""
-    true_count = {}
-    userid_count = {}
+    task = {}
 
     for todo_entry in employee_todo:
-        userId = todo_entry['userId']
-        completed = todo_entry['completed']
+        if todo_entry["userId"] == user_id:
+            task = {
+                "task": todo_entry["title"],
+                "completed": todo_entry["completed"],
+                "username": username
+            }
+            tasks.append(task)
 
-        if userId == input_id:
-            userid_count[userId] = userid_count.get(userId, 0) + 1
+        with open(f"{input_id}.json", "w") as jsonfile:
+            json.dump(tasks, jsonfile)
+    # print(name)
 
-        if completed:
-            true_count[userId] = true_count.get(userId, 0) + 1
+    # completed = employee_todo.json()[0]['completed']
+    # print(completed)
+    """
+        true_count = {}
+        userid_count = {}
 
-    completed_tasks = true_count.get(input_id, 0)
-    total_tasks = userid_count.get(input_id, 0)
+        for todo_entry in employee_todo:
+            userId = todo_entry['userId']
+            completed = todo_entry['completed']
 
-    print("Employee {} is done with tasks({}/{}):".format(
-                                                            name,
-                                                            completed_tasks,
-                                                            total_tasks))
+            if userId == input_id:
+                userid_count[userId] = userid_count.get(userId, 0) + 1
 
-    for todo_entry in employee_todo:
-        if todo_entry['userId'] == input_id and todo_entry['completed']:
-            title = todo_entry['title']
-            print("\t {}".format(title))
-"""
+            if completed:
+                true_count[userId] = true_count.get(userId, 0) + 1
+
+        completed_tasks = true_count.get(input_id, 0)
+        total_tasks = userid_count.get(input_id, 0)
+
+        print("Employee {} is done with tasks({}/{}):".format(
+                                                                name,
+                                                                completed_tasks,
+                                                                total_tasks))
+
+        for todo_entry in employee_todo:
+            if todo_entry['userId'] == input_id and todo_entry['completed']:
+                title = todo_entry['title']
+                print("\t {}".format(title))
+    """
