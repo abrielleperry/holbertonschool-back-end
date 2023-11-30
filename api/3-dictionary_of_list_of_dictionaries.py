@@ -29,15 +29,14 @@ if __name__ == "__main__":
     tasks = {}
 
     for user in employee_user:
-        if todo_entry['userId'] == input_id:
-            task = {
-                "task": todo_entry["title"],
-                "completed": todo_entry["completed"],
-                "username": username
-            }
-            if input_id not in tasks:
-                tasks[input_id] = []
-            tasks.append(task)
+        username = user["username"]
+        user_id = user["id"]
+        task = {
+            "task": todo_entry["title"],
+            "completed": todo_entry["completed"],
+            "username": username
+        }
+        tasks.append(task)
 
     with open(f"{input_id}.json", "w") as jsonfile:
         json.dump(tasks, jsonfile)
