@@ -19,10 +19,10 @@ if __name__ == "__main__":
 
     input_id = int(sys.argv[1])
 
-    name = None
+    username = None
     for user in employee_user:
         if user['id'] == input_id:
-            name = user['name']
+            username = user['username']
             break
 
     with open("{}.csv".format(input_id), "w", newline="") as csvfile:
