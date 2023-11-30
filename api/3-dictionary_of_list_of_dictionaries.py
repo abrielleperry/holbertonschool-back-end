@@ -23,18 +23,18 @@ if __name__ == "__main__":
         username = user['username']
         user_id = user['id']
 
-    tasks = []
+        tasks = []
 
-    for todo_entry in employee_todo:
-        if todo_entry["userId"] == user_id:
-            task = {
-                "task": todo_entry["title"],
-                "completed": todo_entry["completed"],
-                "username": username
-            }
-            tasks.append(task)
+        for todo_entry in employee_todo:
+            if todo_entry["userId"] == user_id:
+                task = {
+                    "task": todo_entry["title"],
+                    "completed": todo_entry["completed"],
+                    "username": username
+                }
+                tasks.append(task)
 
-    entiretasks[str(user_id)] = tasks
+        entiretasks[str(user_id)] = tasks
 
     with open("todo_all_employees.json", "w") as jsonfile:
         json.dump(entiretasks, jsonfile)
