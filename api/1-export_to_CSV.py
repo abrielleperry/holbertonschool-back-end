@@ -30,7 +30,8 @@ if __name__ == "__main__":
         for todo_entry in employee_todo:
             if todo_entry['userId'] == input_id:
                 taskcsv.writerow(
-                    [input_id, name, todo_entry['completed'], todo_entry['title']])
+                    [input_id, name, todo_entry['completed'],
+                     todo_entry['title']])
 # print(name)
 
 # completed = employee_todo.json()[0]['completed']
