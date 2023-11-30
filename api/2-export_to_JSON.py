@@ -33,7 +33,7 @@ if __name__ == "__main__":
                 task = {
                     "task": todo_entry["title"],
                     "completed": todo_entry["completed"],
-                    "username": user_name
+                    "username": username
                 }
                 if input_id not in tasks:
                     tasks[input_id] = []
