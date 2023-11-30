@@ -34,7 +34,7 @@ if __name__ == "__main__":
             }
             tasks.append(task)
 
-        entiretasks[str(user_id)] = tasks
+    entiretasks[str(user_id)] = tasks
 
         with open("todo_all_employees.json", "w") as jsonfile:
             json.dump(tasks, jsonfile)
