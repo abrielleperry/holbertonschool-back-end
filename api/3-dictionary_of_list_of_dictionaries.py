@@ -18,12 +18,12 @@ def get_employee():
 if __name__ == "__main__":
     employee_user, employee_todo = get_employee()
 
-    tasks = {}
+    entiretasks = {}
     for user in employee_user:
         username = user['username']
         user_id = user['id']
 
-    task = {}
+    entiretask = {}
 
     for todo_entry in employee_todo:
         if todo_entry["userId"] == user_id:
@@ -33,6 +33,8 @@ if __name__ == "__main__":
                 "username": username
             }
             tasks.append(task)
+
+        entiretasks[str(user_id)] = tasks
 
         with open("todo_all_employees.json", "w") as jsonfile:
             json.dump(tasks, jsonfile)
